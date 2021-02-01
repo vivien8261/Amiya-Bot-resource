@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 30/01/2021 18:22:22
+ Date: 01/02/2021 18:48:22
 */
 
 SET NAMES utf8mb4;
@@ -219,10 +219,12 @@ CREATE TABLE `t_user`  (
   `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `user_feeling` int(0) NULL DEFAULT 0,
   `user_mood` int(0) NULL DEFAULT 15,
-  `gacha_coupon` int(0) NULL DEFAULT 0,
+  `message_num` bigint(0) NULL DEFAULT NULL,
+  `coupon` int(0) NULL DEFAULT 0,
   `gacha_break_even` int(0) NULL DEFAULT 0,
   `gacha_pool` int(0) NULL DEFAULT 1,
   `sign_in` tinyint(0) NULL DEFAULT 0,
+  `sign_times` int(0) NULL DEFAULT NULL,
   `black` tinyint(0) NULL DEFAULT 0,
   `waiting` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
