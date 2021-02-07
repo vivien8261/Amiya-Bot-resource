@@ -3,15 +3,15 @@
 
  Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 80021
+ Source Server Version : 80023
  Source Host           : localhost:3306
  Source Schema         : amiya
 
  Target Server Type    : MySQL
- Target Server Version : 80021
+ Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 30/01/2021 18:19:26
+ Date: 07/02/2021 18:02:28
 */
 
 SET NAMES utf8mb4;
@@ -94,35 +94,6 @@ INSERT INTO `t_material` VALUES (31033, '晶体元件', 'MTL_SL_OC3');
 INSERT INTO `t_material` VALUES (31034, '晶体电路', 'MTL_SL_OC4');
 
 -- ----------------------------
--- Table structure for t_material_made
--- ----------------------------
-DROP TABLE IF EXISTS `t_material_made`;
-CREATE TABLE `t_material_made`  (
-  `made_id` int(0) NOT NULL AUTO_INCREMENT,
-  `material_id` int(0) NULL DEFAULT NULL,
-  `use_material_id` int(0) NULL DEFAULT NULL,
-  `use_number` int(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`made_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for t_material_source
--- ----------------------------
-DROP TABLE IF EXISTS `t_material_source`;
-CREATE TABLE `t_material_source`  (
-  `source_id` int(0) NOT NULL AUTO_INCREMENT,
-  `material_id` int(0) NULL DEFAULT NULL,
-  `source_place` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `source_rate` tinyint(0) NULL DEFAULT NULL COMMENT '罕见: 1,小概率: 2,中概率: 3,大概率: 4,固定: 5',
-  PRIMARY KEY (`source_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of t_material_source
--- ----------------------------
-INSERT INTO `t_material_source` VALUES (1, 30135, '213213', 1);
-
--- ----------------------------
 -- Table structure for t_operator
 -- ----------------------------
 DROP TABLE IF EXISTS `t_operator`;
@@ -135,7 +106,7 @@ CREATE TABLE `t_operator`  (
   `available` tinyint(0) NULL DEFAULT 0,
   `in_limit` tinyint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`operator_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 186 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_operator
@@ -326,6 +297,10 @@ INSERT INTO `t_operator` VALUES (183, '爱丽丝', 'char_338_iris', 5, 5, 1, 0);
 INSERT INTO `t_operator` VALUES (184, '空弦', 'char_332_archet', 6, 4, 1, 0);
 INSERT INTO `t_operator` VALUES (185, '图耶', 'char_402_tuye', 5, 7, 0, 0);
 INSERT INTO `t_operator` VALUES (186, '阿米娅', 'char_1001_amiya2', 5, 2, 0, 0);
+INSERT INTO `t_operator` VALUES (187, '乌有', 'char_455_nothin', 5, 8, 1, 0);
+INSERT INTO `t_operator` VALUES (188, '炎狱炎熔', 'char_1011_lava2', 5, 5, 0, 0);
+INSERT INTO `t_operator` VALUES (189, '嵯峨', 'char_362_saga', 6, 1, 1, 0);
+INSERT INTO `t_operator` VALUES (190, '夕', 'char_2015_dusk', 6, 5, 1, 1);
 
 -- ----------------------------
 -- Table structure for t_operator_evolve_costs
@@ -338,7 +313,7 @@ CREATE TABLE `t_operator_evolve_costs`  (
   `use_material_id` int(0) NULL DEFAULT NULL,
   `use_number` tinyint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`cost_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 918 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_operator_evolve_costs
@@ -1261,6 +1236,30 @@ INSERT INTO `t_operator_evolve_costs` VALUES (915, 186, 1, 30042, 4);
 INSERT INTO `t_operator_evolve_costs` VALUES (916, 186, 2, 3253, 3);
 INSERT INTO `t_operator_evolve_costs` VALUES (917, 186, 2, 30014, 10);
 INSERT INTO `t_operator_evolve_costs` VALUES (918, 186, 2, 30073, 10);
+INSERT INTO `t_operator_evolve_costs` VALUES (919, 187, 1, 3281, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (920, 187, 1, 30062, 3);
+INSERT INTO `t_operator_evolve_costs` VALUES (921, 187, 1, 30012, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (922, 187, 2, 3283, 3);
+INSERT INTO `t_operator_evolve_costs` VALUES (923, 187, 2, 30064, 6);
+INSERT INTO `t_operator_evolve_costs` VALUES (924, 187, 2, 30083, 10);
+INSERT INTO `t_operator_evolve_costs` VALUES (925, 188, 1, 3251, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (926, 188, 1, 30012, 6);
+INSERT INTO `t_operator_evolve_costs` VALUES (927, 188, 1, 30052, 3);
+INSERT INTO `t_operator_evolve_costs` VALUES (928, 188, 2, 3253, 3);
+INSERT INTO `t_operator_evolve_costs` VALUES (929, 188, 2, 30074, 8);
+INSERT INTO `t_operator_evolve_costs` VALUES (930, 188, 2, 30093, 13);
+INSERT INTO `t_operator_evolve_costs` VALUES (931, 189, 1, 3211, 5);
+INSERT INTO `t_operator_evolve_costs` VALUES (932, 189, 1, 30052, 6);
+INSERT INTO `t_operator_evolve_costs` VALUES (933, 189, 1, 30032, 5);
+INSERT INTO `t_operator_evolve_costs` VALUES (934, 189, 2, 3213, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (935, 189, 2, 30125, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (936, 189, 2, 31024, 6);
+INSERT INTO `t_operator_evolve_costs` VALUES (937, 190, 1, 3251, 5);
+INSERT INTO `t_operator_evolve_costs` VALUES (938, 190, 1, 30062, 6);
+INSERT INTO `t_operator_evolve_costs` VALUES (939, 190, 1, 30042, 3);
+INSERT INTO `t_operator_evolve_costs` VALUES (940, 190, 2, 3253, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (941, 190, 2, 30145, 4);
+INSERT INTO `t_operator_evolve_costs` VALUES (942, 190, 2, 30084, 6);
 
 -- ----------------------------
 -- Table structure for t_operator_skill
@@ -1273,7 +1272,7 @@ CREATE TABLE `t_operator_skill`  (
   `skill_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `skill_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`skill_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 362 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_operator_skill
@@ -1640,6 +1639,16 @@ INSERT INTO `t_operator_skill` VALUES (359, 185, 1, '水流环', 'skchr_tuye_1')
 INSERT INTO `t_operator_skill` VALUES (360, 185, 2, '强心剂', 'skchr_tuye_2');
 INSERT INTO `t_operator_skill` VALUES (361, 186, 1, '影霄·奔夜', 'skchr_amiya2_1');
 INSERT INTO `t_operator_skill` VALUES (362, 186, 2, '影霄·绝影', 'skchr_amiya2_2');
+INSERT INTO `t_operator_skill` VALUES (363, 187, 1, '知难而退', 'skchr_nothin_1');
+INSERT INTO `t_operator_skill` VALUES (364, 187, 2, '阴晴圆缺', 'skchr_nothin_2');
+INSERT INTO `t_operator_skill` VALUES (365, 188, 1, '焰淬匕首', 'skchr_lava2_1');
+INSERT INTO `t_operator_skill` VALUES (366, 188, 2, '狱火之环', 'skchr_lava2_2');
+INSERT INTO `t_operator_skill` VALUES (367, 189, 1, '冲锋号令·γ型', 'skcom_charge_cost[3]');
+INSERT INTO `t_operator_skill` VALUES (368, 189, 2, '除恶', 'skchr_saga_2');
+INSERT INTO `t_operator_skill` VALUES (369, 189, 3, '怒目', 'skchr_saga_3');
+INSERT INTO `t_operator_skill` VALUES (370, 190, 1, '工笔入化', 'skchr_dusk_1');
+INSERT INTO `t_operator_skill` VALUES (371, 190, 2, '泼墨淋漓', 'skchr_dusk_2');
+INSERT INTO `t_operator_skill` VALUES (372, 190, 3, '写意胜形', 'skchr_dusk_3');
 
 -- ----------------------------
 -- Table structure for t_operator_skill_mastery_costs
@@ -1652,7 +1661,7 @@ CREATE TABLE `t_operator_skill_mastery_costs`  (
   `use_material_id` int(0) NULL DEFAULT NULL,
   `use_number` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`cost_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3069 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_operator_skill_mastery_costs
@@ -4726,6 +4735,96 @@ INSERT INTO `t_operator_skill_mastery_costs` VALUES (3066, 362, 2, 31014, 5);
 INSERT INTO `t_operator_skill_mastery_costs` VALUES (3067, 362, 3, 3303, 10);
 INSERT INTO `t_operator_skill_mastery_costs` VALUES (3068, 362, 3, 30145, 4);
 INSERT INTO `t_operator_skill_mastery_costs` VALUES (3069, 362, 3, 30064, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3070, 363, 1, 3303, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3071, 363, 1, 30094, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3072, 363, 1, 30073, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3073, 363, 2, 3303, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3074, 363, 2, 31014, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3075, 363, 2, 30014, 7);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3076, 363, 3, 3303, 10);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3077, 363, 3, 30125, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3078, 363, 3, 31024, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3079, 364, 1, 3303, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3080, 364, 1, 30014, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3081, 364, 1, 30093, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3082, 364, 2, 3303, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3083, 364, 2, 31024, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3084, 364, 2, 30104, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3085, 364, 3, 3303, 10);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3086, 364, 3, 30115, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3087, 364, 3, 31014, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3088, 365, 1, 3303, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3089, 365, 1, 30074, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3090, 365, 1, 30053, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3091, 365, 2, 3303, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3092, 365, 2, 31034, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3093, 365, 2, 31014, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3094, 365, 3, 3303, 10);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3095, 365, 3, 30135, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3096, 365, 3, 30104, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3097, 366, 1, 3303, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3098, 366, 1, 30084, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3099, 366, 1, 30063, 2);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3100, 366, 2, 3303, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3101, 366, 2, 30014, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3102, 366, 2, 30094, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3103, 366, 3, 3303, 10);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3104, 366, 3, 30145, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3105, 366, 3, 30064, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3106, 367, 1, 3303, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3107, 367, 1, 31034, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3108, 367, 1, 31013, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3109, 367, 2, 3303, 12);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3110, 367, 2, 31014, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3111, 367, 2, 30014, 10);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3112, 367, 3, 3303, 15);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3113, 367, 3, 30125, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3114, 367, 3, 31024, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3115, 368, 1, 3303, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3116, 368, 1, 30104, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3117, 368, 1, 30083, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3118, 368, 2, 3303, 12);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3119, 368, 2, 30044, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3120, 368, 2, 31024, 7);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3121, 368, 3, 3303, 15);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3122, 368, 3, 30115, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3123, 368, 3, 31014, 7);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3124, 369, 1, 3303, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3125, 369, 1, 30094, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3126, 369, 1, 30073, 7);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3127, 369, 2, 3303, 12);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3128, 369, 2, 31024, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3129, 369, 2, 30104, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3130, 369, 3, 3303, 15);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3131, 369, 3, 30135, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3132, 369, 3, 30014, 7);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3133, 370, 1, 3303, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3134, 370, 1, 30014, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3135, 370, 1, 30093, 7);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3136, 370, 2, 3303, 12);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3137, 370, 2, 30054, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3138, 370, 2, 31014, 9);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3139, 370, 3, 3303, 15);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3140, 370, 3, 30145, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3141, 370, 3, 30074, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3142, 371, 1, 3303, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3143, 371, 1, 31014, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3144, 371, 1, 30013, 11);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3145, 371, 2, 3303, 12);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3146, 371, 2, 30064, 3);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3147, 371, 2, 31034, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3148, 371, 3, 3303, 15);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3149, 371, 3, 30125, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3150, 371, 3, 30044, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3151, 372, 1, 3303, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3152, 372, 1, 31024, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3153, 372, 1, 30103, 5);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3154, 372, 2, 3303, 12);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3155, 372, 2, 30074, 4);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3156, 372, 2, 30054, 8);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3157, 372, 3, 3303, 15);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3158, 372, 3, 30145, 6);
+INSERT INTO `t_operator_skill_mastery_costs` VALUES (3159, 372, 3, 30084, 6);
 
 -- ----------------------------
 -- Table structure for t_operator_tags_relation
@@ -4737,7 +4836,7 @@ CREATE TABLE `t_operator_tags_relation`  (
   `operator_rarity` tinyint(0) NOT NULL,
   `operator_tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 372 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_operator_tags_relation
@@ -11247,6 +11346,146 @@ INSERT INTO `t_operator_voice` VALUES (6113, 185, '戳一下', '别这么无聊�
 INSERT INTO `t_operator_voice` VALUES (6114, 185, '信赖触摸', '要不要再摸一下我的背包？这回会避开你的脸，我保证。', 'char_402_tuye/CN_036');
 INSERT INTO `t_operator_voice` VALUES (6115, 185, '标题', '明日方舟。', 'char_402_tuye/CN_037');
 INSERT INTO `t_operator_voice` VALUES (6116, 185, '问候', '外面天气不错，又下雨了呢，博士。', 'char_402_tuye/CN_042');
+INSERT INTO `t_operator_voice` VALUES (6117, 187, '任命助理', '哦，这里就是博士的办公室吗？如此甚好，待我查阅一番风水学速成指南......', 'char_455_nothin/CN_001');
+INSERT INTO `t_operator_voice` VALUES (6118, 187, '交谈1', '绝非我自夸啊，除了那点拳脚功夫，做菜烧饭，针灸按摩，风水占卜，铺砖砌墙，插秧垂钓，我是样样好手！博士，尽管吩咐，都包在我身上！', 'char_455_nothin/CN_002');
+INSERT INTO `t_operator_voice` VALUES (6119, 187, '交谈2', '博、博士啊，我先前闲来无事，去人事部那块帮忙，不小心瞥见了几位干员的档案，那、那个食铁兽就是那个《神鬼玄奇之天蚕不死身》的主演？真的？我能要签名吗？', 'char_455_nothin/CN_003');
+INSERT INTO `t_operator_voice` VALUES (6120, 187, '交谈3', '师出何门？嗨，这问题堪比炎国菜系一样复杂，一般我不会随便发言的，说岔了要挨揍。不过嘛......博士你只要知道，我是廉家的最后一任传人了，哦，不过我不姓廉，我姓楚。', 'char_455_nothin/CN_004');
+INSERT INTO `t_operator_voice` VALUES (6121, 187, '晋升后交谈1', '夕、夕小姐......她真的一起来罗德岛了呀。哎呀，怎么说呢，虽然记忆已经模糊不清，但我隐约好像在她的画梦之中窥见过自己凄惨的未来。欸，不提了，可怕可怕，博士也当提防提防。', 'char_455_nothin/CN_005');
+INSERT INTO `t_operator_voice` VALUES (6122, 187, '晋升后交谈2', '欸，博士，您别担心我，我和那些感染者处得可好了。以前离我老家不远的地方发生过一次天灾，昏天黑地的，老吓人了。那会我师父还说过，天灾是老天爷冤枉了人间，唉，真糟心。', 'char_455_nothin/CN_006');
+INSERT INTO `t_operator_voice` VALUES (6123, 187, '信赖提升后交谈1', '炎熔恩人？啊，我叫她恩人，是因为她救过我，久而久之，也就习惯了。我这辈子被人救过三次，每一次，我都铭记在心。钳兽那事儿？欸，不是，恩人给我指了条路，这才是最大的恩惠。', 'char_455_nothin/CN_007');
+INSERT INTO `t_operator_voice` VALUES (6124, 187, '信赖提升后交谈2', '博士，您说啊，人，活着，能不管过去吗？那显然不能，可如果过去留下的那个结，解不开，该怎么办？您也不知道？唉，那咱们俩可真是同病相怜啊，来，嗑瓜子。', 'char_455_nothin/CN_008');
+INSERT INTO `t_operator_voice` VALUES (6125, 187, '信赖提升后交谈3', '勾吴城有许多很老的梧桐。哦，我只是突然想起来而已。想起秋天会掉一地的落叶，父母从乡下来看我，平时严厉的师父这会儿就会说好话，师兄师姐也不会欺负我。嗯，只是想起来而已。', 'char_455_nothin/CN_009');
+INSERT INTO `t_operator_voice` VALUES (6126, 187, '闲置', '哎，我寻思着给您也整把扇子，倒不知写点什么好？', 'char_455_nothin/CN_010');
+INSERT INTO `t_operator_voice` VALUES (6127, 187, '干员报到', '代号是吧，“乌有”，子虚乌有的乌有，您就是博士？就是我新老板啦？哎，要捶背不？要揉揉腿吗？', 'char_455_nothin/CN_011');
+INSERT INTO `t_operator_voice` VALUES (6128, 187, '观看作战记录', '嚯，百般武艺，大开眼界。', 'char_455_nothin/CN_012');
+INSERT INTO `t_operator_voice` VALUES (6129, 187, '精英化晋升1', '升职加薪！？呜呜呜，感谢博士您赏识呀，小弟我日后必赴汤蹈火，在所不辞......呃，那工资能涨多少？', 'char_455_nothin/CN_013');
+INSERT INTO `t_operator_voice` VALUES (6130, 187, '精英化晋升2', '我迟早是要回勾吴城算清那笔糊涂账的，到时候只怕引火烧身，牵连他人，明知如此，博士您还要如此赏识我楚某人？......知遇之恩，当永世不忘。', 'char_455_nothin/CN_014');
+INSERT INTO `t_operator_voice` VALUES (6131, 187, '编入队伍', '好嘞，博士您就放一百个心吧。', 'char_455_nothin/CN_017');
+INSERT INTO `t_operator_voice` VALUES (6132, 187, '任命队长', '我来指挥？且慢，待我找找那几本兵法秘籍先......', 'char_455_nothin/CN_018');
+INSERT INTO `t_operator_voice` VALUES (6133, 187, '行动出发', '俗话说得好，兵来将挡，水来土掩，总有办法的啦。', 'char_455_nothin/CN_019');
+INSERT INTO `t_operator_voice` VALUES (6134, 187, '行动开始', '那一个个看着凶神恶煞，好不得了！', 'char_455_nothin/CN_020');
+INSERT INTO `t_operator_voice` VALUES (6135, 187, '选中干员1', '您找我？', 'char_455_nothin/CN_021');
+INSERT INTO `t_operator_voice` VALUES (6136, 187, '选中干员2', '这儿，这儿呢！', 'char_455_nothin/CN_022');
+INSERT INTO `t_operator_voice` VALUES (6137, 187, '部署1', '好嘞，交给我吧。', 'char_455_nothin/CN_023');
+INSERT INTO `t_operator_voice` VALUES (6138, 187, '部署2', '不愧是博士，英明的决断！', 'char_455_nothin/CN_024');
+INSERT INTO `t_operator_voice` VALUES (6139, 187, '作战中1', '气定，神闲。', 'char_455_nothin/CN_025');
+INSERT INTO `t_operator_voice` VALUES (6140, 187, '作战中2', '炉火纯青，当收放自如。', 'char_455_nothin/CN_026');
+INSERT INTO `t_operator_voice` VALUES (6141, 187, '作战中3', '月有阴晴，扇有开合。', 'char_455_nothin/CN_027');
+INSERT INTO `t_operator_voice` VALUES (6142, 187, '作战中4', '你倒是先出招啊。', 'char_455_nothin/CN_028');
+INSERT INTO `t_operator_voice` VALUES (6143, 187, '4星结束行动', '众人拾柴火焰高，咱们齐心协力，倒真能烧出个满天红霞来，不错不错。', 'char_455_nothin/CN_029');
+INSERT INTO `t_operator_voice` VALUES (6144, 187, '3星结束行动', '俗话说得好，得道者多助，失道者寡助，如此看来，就该是咱们赢呀。', 'char_455_nothin/CN_030');
+INSERT INTO `t_operator_voice` VALUES (6145, 187, '非3星结束行动', '穷寇莫追，要真有什么麻烦，咱们该一起担着。', 'char_455_nothin/CN_031');
+INSERT INTO `t_operator_voice` VALUES (6146, 187, '行动失败', '没事儿的，你们先走，我可擅长跑路了，不会有事的。', 'char_455_nothin/CN_032');
+INSERT INTO `t_operator_voice` VALUES (6147, 187, '进驻设施', '哎呀，罗德岛真乃风水宝地，看得我眼都花啦。', 'char_455_nothin/CN_033');
+INSERT INTO `t_operator_voice` VALUES (6148, 187, '戳一下', '唔哦？博士何故如此？', 'char_455_nothin/CN_034');
+INSERT INTO `t_operator_voice` VALUES (6149, 187, '信赖触摸', '博士，要不要我教你个一招半式？', 'char_455_nothin/CN_036');
+INSERT INTO `t_operator_voice` VALUES (6150, 187, '标题', '明日方舟。', 'char_455_nothin/CN_037');
+INSERT INTO `t_operator_voice` VALUES (6151, 187, '问候', '这不博士嘛，巧了不是！', 'char_455_nothin/CN_042');
+INSERT INTO `t_operator_voice` VALUES (6152, 188, '任命助理', '我现在正空闲，倒不是不能帮你一些忙......这些是什么，不是灾害和法术相关的问题而是普通的工作文书？喂！', 'char_1011_lava2/CN_001');
+INSERT INTO `t_operator_voice` VALUES (6153, 188, '交谈1', '想试试占卜？真怀念，我已经很久没有进行研究了，只是为了找找乐子倒是可以为你算一算......哈，你的运势还是一如既往的一言难尽啊......算了，就用行动证明它的谬误吧。', 'char_1011_lava2/CN_002');
+INSERT INTO `t_operator_voice` VALUES (6154, 188, '交谈2', '源石技艺的钻研......只是作为术师尽自己的职责罢了。如果连这点事情都做不好，我要靠什么来捍卫应当捍卫的......唔？甜食？犒劳我的？谢，谢谢......', 'char_1011_lava2/CN_003');
+INSERT INTO `t_operator_voice` VALUES (6155, 188, '交谈3', '即便不是行动的目标，芙蓉......姐姐她也会无条件为他人提供许多的帮助。在这方面，她善良得完全不像萨卡兹，可她善良的对待这片大地，又有多少人善良地对待她呢。', 'char_1011_lava2/CN_004');
+INSERT INTO `t_operator_voice` VALUES (6156, 188, '晋升后交谈1', '为什么不再沉迷于占卜学？人们对未知的恐惧和好奇很多来自于自然中的现象，更何况，当你无数次直面残酷的事实之后，占卜中揣测的命运也就不那么值得在意了。', 'char_1011_lava2/CN_005');
+INSERT INTO `t_operator_voice` VALUES (6157, 188, '晋升后交谈2', '从源石技艺施法的媒介性能上说，书和法杖并无差别。反倒是小刀一直是最实用的工具，不论是战斗到力量枯竭不得不肉身搏击，亦或是在荒野生存的时候，书里教条式的文字是毫无用处的。', 'char_1011_lava2/CN_006');
+INSERT INTO `t_operator_voice` VALUES (6158, 188, '信赖提升后交谈1', '团队作战虽然麻烦，事到如今，回想起和预备小队的成员们一起作战的经历，的确是......挺，挺怀念的没错啦......如果大家还能一起并肩作战的话......不，没什么。', 'char_1011_lava2/CN_007');
+INSERT INTO `t_operator_voice` VALUES (6159, 188, '信赖提升后交谈2', '我以前也没有那么粗神经吧？为什么在芙蓉眼里，她的妹妹永远像个长不大的小丫头，还总是用对付小鬼那一套欺负我！明明已经和她和解了，但看到她从容的表情还是觉得火大......！', 'char_1011_lava2/CN_008');
+INSERT INTO `t_operator_voice` VALUES (6160, 188, '信赖提升后交谈3', '在这糟糕的时代，人们积累的恶意已经足够多了，必须改变。我无法再忍受那些表面华丽、内心却肮脏无比的伪善者这样对待我的同胞......就因为我们，是萨卡兹。', 'char_1011_lava2/CN_009');
+INSERT INTO `t_operator_voice` VALUES (6161, 188, '闲置', '嗯......你还是睡得这么安稳啊。', 'char_1011_lava2/CN_010');
+INSERT INTO `t_operator_voice` VALUES (6162, 188, '干员报到', '喂，等等，谁让你不敲门进来的——啊，是博士啊。为什么要换上这身？啊......准备去训练场再试探一下自身技艺的极限。要来看看吗，博士？', 'char_1011_lava2/CN_011');
+INSERT INTO `t_operator_voice` VALUES (6163, 188, '观看作战记录', '已经全部掌握了。', 'char_1011_lava2/CN_012');
+INSERT INTO `t_operator_voice` VALUES (6164, 188, '精英化晋升1', '天赋异禀的术师不在少数，我不是那种幸运的家伙。想要拯救他人便不得不成为更强大的术师。愿意帮我这一把，谢谢，博士。', 'char_1011_lava2/CN_013');
+INSERT INTO `t_operator_voice` VALUES (6165, 188, '精英化晋升2', '焰的法术已经掌握至此了。只要继续钻研，或许能碰触到现代源石技艺理论的边界......能影响空间也说不定。', 'char_1011_lava2/CN_014');
+INSERT INTO `t_operator_voice` VALUES (6166, 188, '编入队伍', '敌人的弱点已经全部掌握了，这就出发吧。', 'char_1011_lava2/CN_017');
+INSERT INTO `t_operator_voice` VALUES (6167, 188, '任命队长', '我并不擅长这种事......只要快点结束就可以了吧。', 'char_1011_lava2/CN_018');
+INSERT INTO `t_operator_voice` VALUES (6168, 188, '行动出发', '背后就交给你了，我去会会那些对手。', 'char_1011_lava2/CN_019');
+INSERT INTO `t_operator_voice` VALUES (6169, 188, '行动开始', '被邪恶浸染的有罪灵魂，不配得到宽恕。', 'char_1011_lava2/CN_020');
+INSERT INTO `t_operator_voice` VALUES (6170, 188, '选中干员1', '没时间犹豫了。', 'char_1011_lava2/CN_021');
+INSERT INTO `t_operator_voice` VALUES (6171, 188, '选中干员2', '就是现在。', 'char_1011_lava2/CN_022');
+INSERT INTO `t_operator_voice` VALUES (6172, 188, '部署1', '开始吧。', 'char_1011_lava2/CN_023');
+INSERT INTO `t_operator_voice` VALUES (6173, 188, '部署2', '准备施法。', 'char_1011_lava2/CN_024');
+INSERT INTO `t_operator_voice` VALUES (6174, 188, '作战中1', '呵啊！', 'char_1011_lava2/CN_025');
+INSERT INTO `t_operator_voice` VALUES (6175, 188, '作战中2', '撕裂吧！', 'char_1011_lava2/CN_026');
+INSERT INTO `t_operator_voice` VALUES (6176, 188, '作战中3', '太弱了，躲藏是没用的。', 'char_1011_lava2/CN_027');
+INSERT INTO `t_operator_voice` VALUES (6177, 188, '作战中4', '你的伎俩已经没用了！', 'char_1011_lava2/CN_028');
+INSERT INTO `t_operator_voice` VALUES (6178, 188, '4星结束行动', '历经磨难，方能有所成就。', 'char_1011_lava2/CN_029');
+INSERT INTO `t_operator_voice` VALUES (6179, 188, '3星结束行动', '哼......在痛苦和恐惧中溃败吧。所有的罪恶必将被讨伐。', 'char_1011_lava2/CN_030');
+INSERT INTO `t_operator_voice` VALUES (6180, 188, '非3星结束行动', '这就是我们现在的力量，但是......还不够。我应当做得更好，必须做得更好。', 'char_1011_lava2/CN_031');
+INSERT INTO `t_operator_voice` VALUES (6181, 188, '行动失败', '......呿，必须，赶尽所有邪恶......', 'char_1011_lava2/CN_032');
+INSERT INTO `t_operator_voice` VALUES (6182, 188, '进驻设施', '我还有许多事要做，就让我待在这里吧。', 'char_1011_lava2/CN_033');
+INSERT INTO `t_operator_voice` VALUES (6183, 188, '戳一下', '别、别摸脑袋！', 'char_1011_lava2/CN_034');
+INSERT INTO `t_operator_voice` VALUES (6184, 188, '信赖触摸', '我正在阅读，还有很多要储备的知识......到下午茶时间了吗？那快点走吧。', 'char_1011_lava2/CN_036');
+INSERT INTO `t_operator_voice` VALUES (6185, 188, '标题', '明日方舟。', 'char_1011_lava2/CN_037');
+INSERT INTO `t_operator_voice` VALUES (6186, 188, '问候', '早上好，博士。', 'char_1011_lava2/CN_042');
+INSERT INTO `t_operator_voice` VALUES (6187, 189, '任命助理', '小僧来也！博士，有小僧在，你便安心做事罢！', 'char_362_saga/CN_001');
+INSERT INTO `t_operator_voice` VALUES (6188, 189, '交谈1', '小僧从小在寺庙长大，虽然经文背得滚瓜烂熟，但经中含义却总是一知半解，住持爷爷和其他大师的释义就更难懂了。博士，你很有学问的样子，可以教教小僧吗？', 'char_362_saga/CN_002');
+INSERT INTO `t_operator_voice` VALUES (6189, 189, '交谈2', '罗德岛真是有许多新奇的机器啊......嗯？博士，你莫小看小僧，虽然一开始确实一头雾水，但小僧并非迂腐之人，既然不会，学便是了。小僧的随声听里，还放着空小姐的歌呢。', 'char_362_saga/CN_003');
+INSERT INTO `t_operator_voice` VALUES (6190, 189, '交谈3', '为了躲避天灾，小僧也曾跟随住持爷爷和庙里的师兄弟们一起翻山越岭过。住持爷爷说，天灾是神明发怒，不过小僧从未亲眼见识过天灾，倒还有些好奇。', 'char_362_saga/CN_004');
+INSERT INTO `t_operator_voice` VALUES (6191, 189, '晋升后交谈1', '小僧并非真的僧侣，只是被寺院收养。嵯峨是临行之际从住持爷爷那里求来的名字，意为山高路险。小僧也是离开庙里才知道，原来世间竟是这般坎坷不平。', 'char_362_saga/CN_005');
+INSERT INTO `t_operator_voice` VALUES (6192, 189, '晋升后交谈2', '苦小僧吃得，累小僧更不惧，唯有一点小僧却怎么也想不通。师父说，众生平等。感染者也是人，只是得了病，为何偏就他们活不得？', 'char_362_saga/CN_006');
+INSERT INTO `t_operator_voice` VALUES (6193, 189, '信赖提升后交谈1', '嚯嚯，虽然一开始只是迷路走进的罗德岛招人处，不过无论是吃食还是床铺皆是上等，薪俸也高，小僧真是来到了一个好地方啊。', 'char_362_saga/CN_007');
+INSERT INTO `t_operator_voice` VALUES (6194, 189, '信赖提升后交谈2', '离开庙里时，小僧还以为入世无非是收拾几个蟊贼，除几个恶霸，不曾想世道竟如此变幻莫测，小僧有时甚至不知自己该为何而挥刀。博士，小僧不明白。', 'char_362_saga/CN_008');
+INSERT INTO `t_operator_voice` VALUES (6195, 189, '信赖提升后交谈3', '小僧心中尚有太多疑惑，但小僧至少明白了一点，有些答案，必须小僧自己去寻找，有些念头，必须小僧自己想通透。在想清楚这一切之前，小僧想一直留在博士身边修行，请博士准许！', 'char_362_saga/CN_009');
+INSERT INTO `t_operator_voice` VALUES (6196, 189, '闲置', '博士......嚯，坐而入睡当真好本领。那小僧也冥想片刻吧。', 'char_362_saga/CN_010');
+INSERT INTO `t_operator_voice` VALUES (6197, 189, '干员报到', '你就是博士？你好......啊，这种时候应该严肃一些对吧？咳咳，小僧名唤嵯峨，是一名云游僧，如果有用得到小僧的地方，任凭差遣！', 'char_362_saga/CN_011');
+INSERT INTO `t_operator_voice` VALUES (6198, 189, '观看作战记录', '嚯嚯，世间竟有这般战法，小僧这次可算开了眼界。', 'char_362_saga/CN_012');
+INSERT INTO `t_operator_voice` VALUES (6199, 189, '精英化晋升1', '加薪？妙啊，小僧垂涎食堂的豪华套餐已久，怎奈囊中羞涩......今天终于可以大吃一顿啦！', 'char_362_saga/CN_013');
+INSERT INTO `t_operator_voice` VALUES (6200, 189, '精英化晋升2', '住持爷爷，小僧心中尚有迷茫，这世道，小僧还看不破，斩不断。但小僧有幸得遇贵人，有贵人的指引，终有一日，小僧必定会在这乱世之中斩出一线天！', 'char_362_saga/CN_014');
+INSERT INTO `t_operator_voice` VALUES (6201, 189, '编入队伍', '小僧来也！', 'char_362_saga/CN_017');
+INSERT INTO `t_operator_voice` VALUES (6202, 189, '任命队长', '小僧做队长？没问题！', 'char_362_saga/CN_018');
+INSERT INTO `t_operator_voice` VALUES (6203, 189, '行动出发', '小僧去也！', 'char_362_saga/CN_019');
+INSERT INTO `t_operator_voice` VALUES (6204, 189, '行动开始', '小僧的刀，只斩恶人！', 'char_362_saga/CN_020');
+INSERT INTO `t_operator_voice` VALUES (6205, 189, '选中干员1', '腌萝卜......哈！小僧在！', 'char_362_saga/CN_021');
+INSERT INTO `t_operator_voice` VALUES (6206, 189, '选中干员2', '让小僧来！', 'char_362_saga/CN_022');
+INSERT INTO `t_operator_voice` VALUES (6207, 189, '部署1', '小僧在此！', 'char_362_saga/CN_023');
+INSERT INTO `t_operator_voice` VALUES (6208, 189, '部署2', '谁敢造次！', 'char_362_saga/CN_024');
+INSERT INTO `t_operator_voice` VALUES (6209, 189, '作战中1', '斩却烦恼！', 'char_362_saga/CN_025');
+INSERT INTO `t_operator_voice` VALUES (6210, 189, '作战中2', '六根清净！', 'char_362_saga/CN_026');
+INSERT INTO `t_operator_voice` VALUES (6211, 189, '作战中3', '纳豆拌饭！', 'char_362_saga/CN_027');
+INSERT INTO `t_operator_voice` VALUES (6212, 189, '作战中4', '油炸豆腐！', 'char_362_saga/CN_028');
+INSERT INTO `t_operator_voice` VALUES (6213, 189, '4星结束行动', '真是一场艰苦的试炼，小僧获益良多。', 'char_362_saga/CN_029');
+INSERT INTO `t_operator_voice` VALUES (6214, 189, '3星结束行动', '不愧是博士，光靠小僧肯定会跑掉好几个。', 'char_362_saga/CN_030');
+INSERT INTO `t_operator_voice` VALUES (6215, 189, '非3星结束行动', '住持爷爷说，要有慈悲之心，小僧也觉得差不多行了。', 'char_362_saga/CN_031');
+INSERT INTO `t_operator_voice` VALUES (6216, 189, '行动失败', '博士快走！小僧来殿后！', 'char_362_saga/CN_032');
+INSERT INTO `t_operator_voice` VALUES (6217, 189, '进驻设施', '哪里来的香味？！', 'char_362_saga/CN_033');
+INSERT INTO `t_operator_voice` VALUES (6218, 189, '戳一下', '嗯？！', 'char_362_saga/CN_034');
+INSERT INTO `t_operator_voice` VALUES (6219, 189, '信赖触摸', '小僧随叫随到。', 'char_362_saga/CN_036');
+INSERT INTO `t_operator_voice` VALUES (6220, 189, '标题', '明日方舟。', 'char_362_saga/CN_037');
+INSERT INTO `t_operator_voice` VALUES (6221, 189, '问候', '博士，吃了吗？没吃饱可没力气做事。', 'char_362_saga/CN_042');
+INSERT INTO `t_operator_voice` VALUES (6222, 190, '任命助理', '嗯？不是说过，你敲门之后我要是不答应，你就不准进来吗？你的办公室？值班？那我不也是因为值班才出自己房间的吗？你的办公室是什么意思，册起册起册起，我还在构思哪。', 'char_2015_dusk/CN_001');
+INSERT INTO `t_operator_voice` VALUES (6223, 190, '交谈1', '你想看画？可以。如果是你的话，送你张画也可以。但你要是喜欢这画，我就不会送你。你不喜欢？那更不用给你了。我这个人就这样，知足吧。', 'char_2015_dusk/CN_002');
+INSERT INTO `t_operator_voice` VALUES (6224, 190, '交谈2', '我被困在这艘船上了。要是有人问起来你就和他们这么说，这屋子也别让他们进来。占用公共空间？拒绝履行干员义务？你好，我是被困在这个房间里的大画家，夕。', 'char_2015_dusk/CN_003');
+INSERT INTO `t_operator_voice` VALUES (6225, 190, '交谈3', '不出去。别喊我出去了，弗想出去。外面的世界，我不在乎了。不喜欢？我当然喜欢。山川风月，花羽林渊，贩夫走卒，老少男女，画不尽，也看不完，越不过，也走不出。我兴致尽了。', 'char_2015_dusk/CN_004');
+INSERT INTO `t_operator_voice` VALUES (6226, 190, '晋升后交谈1', '我讨厌品味这词。开口就把人堵在门外，谁给他们的自信让他们觉得就自己配得上好物什？那样子是最凹糟的。只要尽兴，就是得意。而想要进取，就不准有门户之见。你见过天上双月自私自利吗？', 'char_2015_dusk/CN_005');
+INSERT INTO `t_operator_voice` VALUES (6227, 190, '晋升后交谈2', '看我认真作画的机会，就算这大地上万中挑一的人，一生也最多一次。“时来天地皆同力”，气、骨、形、色、法，无一不从无一不至，倾泻如浩荡江河，细密如山间竹影，手中这笔，我都停不下它。', 'char_2015_dusk/CN_006');
+INSERT INTO `t_operator_voice` VALUES (6228, 190, '信赖提升后交谈1', '这段时日我也找了些现在的作品来看。电影还不错，和画很像，好的那些风骨各异，形在，意也不差。好啊，诗和画都算是有传承了。能顺手帮我把年那一屋的垃圾烧了吗？她真的在侮辱电影，拜托。', 'char_2015_dusk/CN_007');
+INSERT INTO `t_operator_voice` VALUES (6229, 190, '信赖提升后交谈2', '饭菜到了？喔，谢谢。嗯~是哪一国的酒？不错呀。蛮好，还是缺了些什么的味道才更真切。好奇我平常吃什么？你，来，闭上眼。啊~是不是没感觉？没错，只要你没看过，我画里的饭菜就不存在。', 'char_2015_dusk/CN_008');
+INSERT INTO `t_operator_voice` VALUES (6230, 190, '信赖提升后交谈3', '看年那一副满不在乎的样子，其实你也知道吧，她对我们的生死在意的不得了，而我，我虽然跟那个在留白上涂涂写写的家伙合不太来，但我们两个的确不在意。人死了，画还在。我死了，笔意还在。', 'char_2015_dusk/CN_009');
+INSERT INTO `t_operator_voice` VALUES (6231, 190, '闲置', '梦如人生，梦入长卷。人这一睡，会睡过几个千年呢？', 'char_2015_dusk/CN_010');
+INSERT INTO `t_operator_voice` VALUES (6232, 190, '干员报到', '啊？{@nickname}？又是合同？好了好了，签了以后你可别再来烦我。拿去......事先讲好，夕我，从不送画，谁都不送。也不接单！', 'char_2015_dusk/CN_011');
+INSERT INTO `t_operator_voice` VALUES (6233, 190, '观看作战记录', '嗯？操戈杀伐，血流成河，难道说......你想让我画这些？', 'char_2015_dusk/CN_012');
+INSERT INTO `t_operator_voice` VALUES (6234, 190, '精英化晋升1', '我为什么用剑？那可有讲究，“以砚为鞘，可以研春秋；以笔为剑，可以涂鬼神”。真的假的？自然是我随便说的。', 'char_2015_dusk/CN_013');
+INSERT INTO `t_operator_voice` VALUES (6235, 190, '精英化晋升2', '嚯，能跟我走到这步......我就给你画一幅吧。当心！可别陷进去，另片天地可比这里迷人太多了。从古至今看得破、离得开、忘得掉的，又有几人呢？', 'char_2015_dusk/CN_014');
+INSERT INTO `t_operator_voice` VALUES (6236, 190, '编入队伍', '可别耽误我太长时间。', 'char_2015_dusk/CN_017');
+INSERT INTO `t_operator_voice` VALUES (6237, 190, '任命队长', '队长？那是干什么的？', 'char_2015_dusk/CN_018');
+INSERT INTO `t_operator_voice` VALUES (6238, 190, '行动出发', '那就赶紧了结了吧。', 'char_2015_dusk/CN_019');
+INSERT INTO `t_operator_voice` VALUES (6239, 190, '行动开始', '今天我心情不错，就送你们一幅《沙场白骨图》吧。', 'char_2015_dusk/CN_020');
+INSERT INTO `t_operator_voice` VALUES (6240, 190, '选中干员1', '可别太过分。', 'char_2015_dusk/CN_021');
+INSERT INTO `t_operator_voice` VALUES (6241, 190, '选中干员2', '细笔还是留在家里画吧。', 'char_2015_dusk/CN_022');
+INSERT INTO `t_operator_voice` VALUES (6242, 190, '部署1', '你们有人想做我的颜料吗？', 'char_2015_dusk/CN_023');
+INSERT INTO `t_operator_voice` VALUES (6243, 190, '部署2', '这片战场，适合泼墨法。', 'char_2015_dusk/CN_024');
+INSERT INTO `t_operator_voice` VALUES (6244, 190, '作战中1', '讲话太难懂了，我画出来给你看看。', 'char_2015_dusk/CN_025');
+INSERT INTO `t_operator_voice` VALUES (6245, 190, '作战中2', '落锋长日坠，起笔叠嶂起！', 'char_2015_dusk/CN_026');
+INSERT INTO `t_operator_voice` VALUES (6246, 190, '作战中3', '以有形摹无垠，以无形应天下！', 'char_2015_dusk/CN_027');
+INSERT INTO `t_operator_voice` VALUES (6247, 190, '作战中4', '我对你们还算是有感情的。大多数时候。', 'char_2015_dusk/CN_028');
+INSERT INTO `t_operator_voice` VALUES (6248, 190, '4星结束行动', '丹青与干戈，本来是离得很远的。但劲力到了，战争也是艺术。', 'char_2015_dusk/CN_029');
+INSERT INTO `t_operator_voice` VALUES (6249, 190, '3星结束行动', '还不错。', 'char_2015_dusk/CN_030');
+INSERT INTO `t_operator_voice` VALUES (6250, 190, '非3星结束行动', '嗯......没画好的画就该撕掉。会让自己丢脸的。', 'char_2015_dusk/CN_031');
+INSERT INTO `t_operator_voice` VALUES (6251, 190, '行动失败', '笔锋散了吧？重画吧。', 'char_2015_dusk/CN_032');
+INSERT INTO `t_operator_voice` VALUES (6252, 190, '进驻设施', '房间装修就不用帮我准备了。我会自己准备的。', 'char_2015_dusk/CN_033');
+INSERT INTO `t_operator_voice` VALUES (6253, 190, '戳一下', '墨汁要洒了！', 'char_2015_dusk/CN_034');
+INSERT INTO `t_operator_voice` VALUES (6254, 190, '信赖触摸', '喂，可别沾得一身都是颜料。', 'char_2015_dusk/CN_036');
+INSERT INTO `t_operator_voice` VALUES (6255, 190, '标题', '明日方舟。', 'char_2015_dusk/CN_037');
+INSERT INTO `t_operator_voice` VALUES (6256, 190, '问候', '你的名字是啥来着，哦，{@nickname}？', 'char_2015_dusk/CN_042');
 
 -- ----------------------------
 -- Table structure for t_pool
@@ -11266,7 +11505,7 @@ CREATE TABLE `t_pool`  (
 -- ----------------------------
 -- Records of t_pool
 -- ----------------------------
-INSERT INTO `t_pool` VALUES (1, '常驻寻访', '陈,推进之王', '临光,可颂,燧石', '', NULL, 0);
+INSERT INTO `t_pool` VALUES (1, '常驻寻访', '莫斯提马,棘刺', '梅尔,空,四月', '', NULL, 0);
 INSERT INTO `t_pool` VALUES (2, '联合行动', '星熊,阿,刻俄柏,风笛', '蓝毒,真理,华法琳,星极,布洛卡,石棉', '', NULL, 2);
 INSERT INTO `t_pool` VALUES (3, '银灰色的荣耀', '银灰', '初雪,崖心', '角峰', NULL, 0);
 INSERT INTO `t_pool` VALUES (4, '搅动潮汐之剑', '斯卡蒂', '夜魔,临光', '猎蜂,暗索', NULL, 0);

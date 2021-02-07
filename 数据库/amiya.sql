@@ -3,19 +3,29 @@
 
  Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 80021
+ Source Server Version : 80023
  Source Host           : localhost:3306
  Source Schema         : amiya
 
  Target Server Type    : MySQL
- Target Server Version : 80021
+ Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 01/02/2021 18:48:22
+ Date: 07/02/2021 18:05:23
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for t_config_amiya
+-- ----------------------------
+DROP TABLE IF EXISTS `t_config_amiya`;
+CREATE TABLE `t_config_amiya`  (
+  `config_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `config_keyword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `config_values` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_function
@@ -34,9 +44,8 @@ DROP TABLE IF EXISTS `t_group`;
 CREATE TABLE `t_group`  (
   `group_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `msg_total` bigint(0) NULL DEFAULT 0,
-  `use_total` bigint(0) NULL DEFAULT 0,
-  `in_time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `is_ignore` tinyint(0) NULL DEFAULT 0,
+  `used_total` bigint(0) NULL DEFAULT 0,
+  `last_active_time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`group_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
@@ -50,7 +59,7 @@ CREATE TABLE `t_images`  (
   `image_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `mirai_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`image_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9900 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_material
@@ -73,7 +82,7 @@ CREATE TABLE `t_material_made`  (
   `use_material_id` int(0) NULL DEFAULT NULL,
   `use_number` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`made_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_material_source
@@ -85,7 +94,7 @@ CREATE TABLE `t_material_source`  (
   `source_place` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `source_rate` tinyint(0) NULL DEFAULT NULL COMMENT '罕见: 1,小概率: 2,中概率: 3,大概率: 4,固定: 5',
   PRIMARY KEY (`source_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_message
@@ -99,7 +108,7 @@ CREATE TABLE `t_message`  (
   `msg_time` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `hour_mark` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`msg_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37368 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_operator
@@ -114,7 +123,7 @@ CREATE TABLE `t_operator`  (
   `available` tinyint(0) NULL DEFAULT 0,
   `in_limit` tinyint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`operator_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 186 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_operator_evolve_costs
@@ -127,7 +136,7 @@ CREATE TABLE `t_operator_evolve_costs`  (
   `use_material_id` int(0) NULL DEFAULT NULL,
   `use_number` tinyint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`cost_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 918 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_operator_skill
@@ -140,7 +149,7 @@ CREATE TABLE `t_operator_skill`  (
   `skill_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `skill_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`skill_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 362 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_operator_skill_mastery_costs
@@ -153,7 +162,7 @@ CREATE TABLE `t_operator_skill_mastery_costs`  (
   `use_material_id` int(0) NULL DEFAULT NULL,
   `use_number` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`cost_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3069 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_operator_tags_relation
@@ -165,7 +174,7 @@ CREATE TABLE `t_operator_tags_relation`  (
   `operator_rarity` tinyint(0) NOT NULL,
   `operator_tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 372 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_operator_voice
