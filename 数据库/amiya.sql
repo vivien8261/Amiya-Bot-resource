@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 07/02/2021 18:05:23
+ Date: 15/03/2021 18:54:45
 */
 
 SET NAMES utf8mb4;
@@ -118,6 +118,7 @@ CREATE TABLE `t_operator`  (
   `operator_id` int(0) NOT NULL AUTO_INCREMENT,
   `operator_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `operator_no` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `operator_avatar` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `operator_rarity` tinyint(0) NULL DEFAULT NULL,
   `operator_class` tinyint(0) NULL DEFAULT NULL COMMENT '先锋: 1,近卫: 2,重装: 3,狙击: 4,术师: 5,辅助: 6,医疗: 7,特种: 8',
   `available` tinyint(0) NULL DEFAULT 0,
@@ -147,6 +148,7 @@ CREATE TABLE `t_operator_skill`  (
   `operator_id` int(0) NULL DEFAULT NULL,
   `skill_index` tinyint(0) NULL DEFAULT NULL,
   `skill_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `skill_icon` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `skill_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`skill_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
