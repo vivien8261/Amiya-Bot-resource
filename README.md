@@ -6,7 +6,7 @@
 
 ### 下载最新的 [mirai-console-loader](https://github.com/iTXTech/mirai-console-loader/releases)
 
-> mirai-console-loader 是 mirai-console 的官方启动器，若能自己启动 mirai-console，请忽略该步骤
+> mirai-console-loader 是 mirai-console 的官方启动器，若能自己启动 mirai-console，请忽略该步骤<br>
 > 注意：该步骤仅限 Windows 系统
 
 1. 解压下载的 mirai-console-loader 压缩包
