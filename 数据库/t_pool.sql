@@ -3,15 +3,15 @@
 
  Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 80023
+ Source Server Version : 80018
  Source Host           : localhost:3306
  Source Schema         : amiya
 
  Target Server Type    : MySQL
- Target Server Version : 80023
+ Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 20/03/2021 11:58:50
+ Date: 23/03/2021 17:10:02
 */
 
 SET NAMES utf8mb4;
@@ -22,21 +22,21 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_pool`;
 CREATE TABLE `t_pool` (
-  `pool_id` int NOT NULL AUTO_INCREMENT,
+  `pool_id` int(11) NOT NULL AUTO_INCREMENT,
   `pool_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `pickup_6` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `pickup_5` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `pickup_4` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `pickup_s` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `limit_pool` tinyint DEFAULT NULL,
+  `limit_pool` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`pool_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of t_pool
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_pool` VALUES (1, '常驻寻访', '安洁莉娜,刻俄柏', '普罗旺斯,拉普兰德,絮雨', '', NULL, 0);
+INSERT INTO `t_pool` VALUES (1, '常驻寻访', '莫斯提马,棘刺', '梅尔,空,四月', '', NULL, 0);
 INSERT INTO `t_pool` VALUES (2, '联合行动', '星熊,阿,刻俄柏,风笛', '蓝毒,真理,华法琳,星极,布洛卡,石棉', '', NULL, 2);
 INSERT INTO `t_pool` VALUES (3, '银灰色的荣耀', '银灰', '初雪,崖心', '角峰', NULL, 0);
 INSERT INTO `t_pool` VALUES (4, '搅动潮汐之剑', '斯卡蒂', '夜魔,临光', '猎蜂,暗索', NULL, 0);
@@ -66,7 +66,6 @@ INSERT INTO `t_pool` VALUES (27, '勿忘我', '迷迭香,泥岩', '絮雨', '杰
 INSERT INTO `t_pool` VALUES (28, '自由的囚徒', '山', '卡夫卡,赫默', '松果', NULL, 0);
 INSERT INTO `t_pool` VALUES (29, '麦穗与赞美诗', '空弦', '爱丽丝,贾维', '豆苗', NULL, 0);
 INSERT INTO `t_pool` VALUES (30, '月隐晦明', '夕,嵯峨', '乌有', '', '年|5', 1);
-INSERT INTO `t_pool` VALUES (31, '进攻、防守、战术交汇', '灰烬', '霜华,闪击', '', NULL, 1);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

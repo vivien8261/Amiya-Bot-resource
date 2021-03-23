@@ -79,7 +79,7 @@ extraHeaders:
 ### 下载 Amiya 资源
 
 1. 在 Mysql 数据库里导入结构文件`amiya.sql`（必须）
-2. 在 Mysql 数据库里导入配置文件`config.sql`（必须）
+2. 在 Mysql 数据库里导入配置文件`t_config_amiya.sql`（必须）
 3. 把字体文件放到目录`resource/style`下
 4. 把表情包图片放到目录`resource/images/face`下，可自行添加，支持 png 和 jpg 格式
 

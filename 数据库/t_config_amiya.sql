@@ -3,15 +3,15 @@
 
  Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 80023
+ Source Server Version : 80018
  Source Host           : localhost:3306
  Source Schema         : amiya
 
  Target Server Type    : MySQL
- Target Server Version : 80023
+ Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 07/02/2021 18:16:42
+ Date: 23/03/2021 17:10:53
 */
 
 SET NAMES utf8mb4;
@@ -21,15 +21,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for t_config_amiya
 -- ----------------------------
 DROP TABLE IF EXISTS `t_config_amiya`;
-CREATE TABLE `t_config_amiya`  (
-  `config_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `config_keyword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `config_values` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `t_config_amiya` (
+  `config_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `config_keyword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `config_values` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of t_config_amiya
 -- ----------------------------
+BEGIN;
 INSERT INTO `t_config_amiya` VALUES ('amiya_name', 'good_name', '阿米娅,阿米兔,兔兔,兔子,小兔子,Amiya,amiya');
 INSERT INTO `t_config_amiya` VALUES ('amiya_name', 'bad_name', '阿米驴,阿驴,小驴子,驴子,驴驴');
 INSERT INTO `t_config_amiya` VALUES ('amiya_keyword', 'good_word', '%s乖,%s真乖,%s真棒,%s萌,%s么么哒,爱%s,喜欢%s,我喜欢你,我爱你,亲,抱抱,抱一抱,抱一下,摸头,摸摸头,太可爱了,真可爱,可爱,真漂亮,漂亮,我错了,对不起,抱歉');
@@ -44,5 +45,6 @@ INSERT INTO `t_config_amiya` VALUES ('amiya_touch', 'reply2', '妈妈有时会�
 INSERT INTO `t_config_amiya` VALUES ('amiya_touch', 'reply2', '姐姐现在正在干什么呢……会不会有一天回来……');
 INSERT INTO `t_config_amiya` VALUES ('amiya_touch', 'reply2', '姐姐以前似乎是人气很高的人呢，我也要继续努力，得到博士的认可。');
 INSERT INTO `t_config_amiya` VALUES ('amiya_touch', 'reply2', '姐姐的日记里，记录着很多博士的信息。不知道博士们，还记不记得姐姐……');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
