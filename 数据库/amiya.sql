@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 02/04/2021 18:42:10
+ Date: 12/04/2021 20:00:25
 */
 
 SET NAMES utf8mb4;
@@ -68,7 +68,8 @@ DROP TABLE IF EXISTS `t_material`;
 CREATE TABLE `t_material`  (
   `material_id` int(0) NOT NULL,
   `material_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `material_nickname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `material_icon` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `material_desc` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`material_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
@@ -81,6 +82,7 @@ CREATE TABLE `t_material_made`  (
   `material_id` int(0) NULL DEFAULT NULL,
   `use_material_id` int(0) NULL DEFAULT NULL,
   `use_number` int(0) NULL DEFAULT NULL,
+  `made_type` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`made_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
@@ -91,8 +93,8 @@ DROP TABLE IF EXISTS `t_material_source`;
 CREATE TABLE `t_material_source`  (
   `source_id` int(0) NOT NULL AUTO_INCREMENT,
   `material_id` int(0) NULL DEFAULT NULL,
-  `source_place` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `source_rate` tinyint(0) NULL DEFAULT NULL COMMENT '罕见: 1,小概率: 2,中概率: 3,大概率: 4,固定: 5',
+  `source_place` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `source_rate` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`source_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
