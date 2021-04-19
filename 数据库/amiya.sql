@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 19/04/2021 09:06:59
+ Date: 19/04/2021 20:33:16
 */
 
 SET NAMES utf8mb4;
@@ -130,6 +130,19 @@ CREATE TABLE `t_operator`  (
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Table structure for t_operator_building_skill
+-- ----------------------------
+DROP TABLE IF EXISTS `t_operator_building_skill`;
+CREATE TABLE `t_operator_building_skill`  (
+  `bs_id` int(0) NOT NULL AUTO_INCREMENT,
+  `operator_id` int(0) NULL DEFAULT NULL,
+  `bs_unlocked` int(0) NULL DEFAULT NULL,
+  `bs_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `bs_desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`bs_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for t_operator_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `t_operator_detail`;
@@ -163,6 +176,18 @@ CREATE TABLE `t_operator_evolve_costs`  (
   `use_number` tinyint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`cost_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for t_operator_potential
+-- ----------------------------
+DROP TABLE IF EXISTS `t_operator_potential`;
+CREATE TABLE `t_operator_potential`  (
+  `potential_id` int(0) NOT NULL AUTO_INCREMENT,
+  `operator_id` int(0) NULL DEFAULT NULL,
+  `potential_desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `potential_rank` tinyint(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`potential_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for t_operator_skill
@@ -226,11 +251,11 @@ CREATE TABLE `t_operator_stories`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_operator_tags_relation`;
 CREATE TABLE `t_operator_tags_relation`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `rel_id` int(0) NOT NULL AUTO_INCREMENT,
   `operator_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `operator_rarity` tinyint(0) NOT NULL,
   `operator_tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`rel_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
