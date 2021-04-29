@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 19/04/2021 20:33:16
+ Date: 29/04/2021 13:08:10
 */
 
 SET NAMES utf8mb4;
@@ -43,9 +43,8 @@ CREATE TABLE `t_function`  (
 DROP TABLE IF EXISTS `t_group`;
 CREATE TABLE `t_group`  (
   `group_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `msg_total` bigint(0) NULL DEFAULT 0,
-  `used_total` bigint(0) NULL DEFAULT 0,
-  `last_active_time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `active` tinyint(0) NULL DEFAULT 1,
+  `sleep_time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`group_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 

@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 02/04/2021 18:44:19
+ Date: 29/04/2021 13:10:20
 */
 
 SET NAMES utf8mb4;
@@ -30,12 +30,12 @@ CREATE TABLE `t_pool`  (
   `pickup_s` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `limit_pool` tinyint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`pool_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_pool
 -- ----------------------------
-INSERT INTO `t_pool` VALUES (1, '常驻寻访', '瑕光,星熊', '狮蝎,凛冬,格劳克斯', '', NULL, 0);
+INSERT INTO `t_pool` VALUES (1, '常驻寻访', '山,煌', '燧石,布洛卡,石棉', '', NULL, 0);
 INSERT INTO `t_pool` VALUES (2, '联合行动', '星熊,阿,刻俄柏,风笛', '蓝毒,真理,华法琳,星极,布洛卡,石棉', '', NULL, 2);
 INSERT INTO `t_pool` VALUES (3, '银灰色的荣耀', '银灰', '初雪,崖心', '角峰', NULL, 0);
 INSERT INTO `t_pool` VALUES (4, '搅动潮汐之剑', '斯卡蒂', '夜魔,临光', '猎蜂,暗索', NULL, 0);
@@ -66,5 +66,7 @@ INSERT INTO `t_pool` VALUES (28, '自由的囚徒', '山', '卡夫卡,赫默', '
 INSERT INTO `t_pool` VALUES (29, '麦穗与赞美诗', '空弦', '爱丽丝,贾维', '豆苗', NULL, 0);
 INSERT INTO `t_pool` VALUES (30, '月隐晦明', '夕,嵯峨', '乌有', '', '年|5', 1);
 INSERT INTO `t_pool` VALUES (31, '进攻、防守、战术交汇', '灰烬', '霜华,闪击', '', NULL, 1);
+INSERT INTO `t_pool` VALUES (32, '沙海过客', '异客', '熔泉', '', NULL, 0);
+INSERT INTO `t_pool` VALUES (33, '深悼', '浊心斯卡蒂,凯尔希', '赤冬', '', 'W|5', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

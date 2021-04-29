@@ -10,8 +10,8 @@
 > 注意：该步骤仅限 Windows 系统
 
 1. 解压下载的 mirai-console-loader 压缩包
-2. 运行 mcl.cmd 初始化（初始化结束后关闭）
-3. 控制台运行以下命令，加载插件 mirai-api-http（加载结束后关闭）
+2. 运行 mcl.cmd 初始化（初始化结束后关闭控制台）
+3. 在当前目录使用控制台运行以下命令，加载插件 mirai-api-http（加载结束后关闭）
 
 ```bash
 mcl --update-package net.mamoe:mirai-api-http --channel stable --type plugin
@@ -19,6 +19,7 @@ mcl --update-package net.mamoe:mirai-api-http --channel stable --type plugin
 
 4. 修改自动登陆配置`config\Console\AutoLogin.yml`
     - 修改 `account` 和 `password: value` 为 bot 的 QQ 号和密码即可
+    - `protocol` 协议建议修改为 `ANDROID_PAD`
 
 ```yml
 accounts:
@@ -38,7 +39,8 @@ accounts:
 ```
 
 5. 修改 mirai-api-http 的配置`config\net.mamoe.mirai-api-http\setting.yml`
-    - （重点）记录 host、port 以及 authKey 的值，这将要配置到 Amiya 的配置文件里
+    - （重点）打开 Websocket `enableWebsocket: true`
+    - （重点）配置和记录 host、port 以及 authKey 的值，这将要配置到 Amiya 的配置文件里
 
 ```yml
 cors:
@@ -76,13 +78,17 @@ extraHeaders:
 
 6. 再次运行 mcl.cmd，若显示成功加载插件和登陆成功，即表示成功启动了 mirai-console
 
-### 下载 Amiya 资源
+### 导入 Amiya-Bot 资源
 
-1. 在 Mysql 数据库里导入结构文件`amiya.sql`（必须）
-2. 在 Mysql 数据库里导入配置文件`t_config_amiya.sql`（必须）
-3. 把字体文件放到目录`resource/style`下
-4. 把表情包图片放到目录`resource/images/face`下，可自行添加，支持 png 和 jpg 格式
+1. 在 Mysql 数据库里导入结构文件 `Database/amiya.sql`（必须）
+2. 在 Mysql 数据库里导入初始数据文件 `Database/Data/t_config_amiya.sql`（必须）
+3. 把字体文件 `Font/AdobeHeitiStd-Regular.otf` 放到 Amiya-Bot 目录 `resource/style` 下
+4. 把表情包图片 `Images/Face/` 放到 Amiya-Bot 目录 `resource/images/face` 下，可自行添加，支持 png 和 jpg 格式
+
+### 更新现有数据库
+
+`Database/Tables` 下有单个数据表的结构文件，Amiya-Bot 在一些更新中需要修改表结构的时候，可以从中使用单表结构文件定向更新数据库
 
 ### 声明
 
-图片以及字体文件为第三方资源，若侵犯了您的权益，请联系官方QQ群`362165038`，我们会第一时间并响应作相关处理
+Amiya-Bot 仅用于交流学习，图片以及字体文件为第三方资源，若侵犯了您的权益，请联系官方QQ群 `362165038` ，我们会第一时间并响应作相关处理
