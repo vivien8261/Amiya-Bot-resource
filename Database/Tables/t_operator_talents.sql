@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.18, for osx10.15 (x86_64)
 --
 -- Host: 127.0.0.1    Database: amiya
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.0.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,10 +21,10 @@
 
 DROP TABLE IF EXISTS `t_operator_talents`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_operator_talents` (
-  `talents_id` int NOT NULL AUTO_INCREMENT,
-  `operator_id` int DEFAULT NULL,
+  `talents_id` int(11) NOT NULL AUTO_INCREMENT,
+  `operator_id` int(11) DEFAULT NULL,
   `talents_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `talents_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   PRIMARY KEY (`talents_id`) USING BTREE
@@ -40,4 +40,4 @@ CREATE TABLE `t_operator_talents` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-29 15:46:24
+-- Dump completed on 2021-06-12 18:15:13

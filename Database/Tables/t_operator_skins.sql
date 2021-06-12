@@ -16,19 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `t_operator_potential`
+-- Table structure for table `t_operator_skins`
 --
 
-DROP TABLE IF EXISTS `t_operator_potential`;
+DROP TABLE IF EXISTS `t_operator_skins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `t_operator_potential` (
-  `potential_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `t_operator_skins` (
+  `skin_id` int(11) NOT NULL AUTO_INCREMENT,
   `operator_id` int(11) DEFAULT NULL,
-  `potential_desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `potential_rank` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`potential_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+  `skin_image` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_type` tinyint(4) DEFAULT NULL,
+  `skin_name` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_drawer` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_group` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_content` text COLLATE utf8mb4_general_ci,
+  `skin_usage` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_desc` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_source` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`skin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
