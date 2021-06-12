@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 29/04/2021 13:10:20
+ Date: 12/06/2021 18:19:49
 */
 
 SET NAMES utf8mb4;
@@ -21,22 +21,23 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for t_pool
 -- ----------------------------
 DROP TABLE IF EXISTS `t_pool`;
-CREATE TABLE `t_pool`  (
-  `pool_id` int(0) NOT NULL AUTO_INCREMENT,
-  `pool_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `pickup_6` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `pickup_5` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `pickup_4` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `pickup_s` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `limit_pool` tinyint(0) NULL DEFAULT NULL,
+CREATE TABLE `t_pool` (
+  `pool_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pool_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `pickup_6` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `pickup_5` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `pickup_4` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `pickup_s` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `limit_pool` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`pool_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of t_pool
 -- ----------------------------
-INSERT INTO `t_pool` VALUES (1, '常驻寻访', '山,煌', '燧石,布洛卡,石棉', '', NULL, 0);
-INSERT INTO `t_pool` VALUES (2, '联合行动', '星熊,阿,刻俄柏,风笛', '蓝毒,真理,华法琳,星极,布洛卡,石棉', '', NULL, 2);
+BEGIN;
+INSERT INTO `t_pool` VALUES (1, '常驻寻访', '莫斯提马,推进之王', '诗怀雅,星极,爱丽丝', '', NULL, 0);
+INSERT INTO `t_pool` VALUES (2, '联合行动', '棘刺,夜莺,铃兰,温蒂', '临光,安哲拉,赫默,芙兰卡,极境,莱恩哈特', '', NULL, 2);
 INSERT INTO `t_pool` VALUES (3, '银灰色的荣耀', '银灰', '初雪,崖心', '角峰', NULL, 0);
 INSERT INTO `t_pool` VALUES (4, '搅动潮汐之剑', '斯卡蒂', '夜魔,临光', '猎蜂,暗索', NULL, 0);
 INSERT INTO `t_pool` VALUES (5, '鞘中赤红', '陈', '诗怀雅,食铁兽', '格雷伊', NULL, 0);
@@ -68,5 +69,7 @@ INSERT INTO `t_pool` VALUES (30, '月隐晦明', '夕,嵯峨', '乌有', '', '�
 INSERT INTO `t_pool` VALUES (31, '进攻、防守、战术交汇', '灰烬', '霜华,闪击', '', NULL, 1);
 INSERT INTO `t_pool` VALUES (32, '沙海过客', '异客', '熔泉', '', NULL, 0);
 INSERT INTO `t_pool` VALUES (33, '深悼', '浊心斯卡蒂,凯尔希', '赤冬', '', 'W|5', 1);
+INSERT INTO `t_pool` VALUES (34, '革新交响曲', '卡涅利安', '绮良,崖心', '深靛', NULL, 0);
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
