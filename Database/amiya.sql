@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 12/06/2021 18:57:05
+ Date: 15/06/2021 20:59:23
 */
 
 SET NAMES utf8mb4;
@@ -36,6 +36,18 @@ CREATE TABLE `t_function` (
   `function_use_num` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`function_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Table structure for t_function_disable
+-- ----------------------------
+DROP TABLE IF EXISTS `t_function_disable`;
+CREATE TABLE `t_function_disable` (
+  `dis_id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `function_id` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`dis_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Table structure for t_group
