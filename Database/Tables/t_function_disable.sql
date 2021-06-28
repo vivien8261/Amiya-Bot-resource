@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `t_function_disable`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_function_disable` (
   `dis_id` int(11) NOT NULL AUTO_INCREMENT,
-  `group_id` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `function_id` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `group_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `function_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`dis_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`dis_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -40,4 +40,4 @@ CREATE TABLE `t_function_disable` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-15 20:58:50
+-- Dump completed on 2021-06-28 11:46:33

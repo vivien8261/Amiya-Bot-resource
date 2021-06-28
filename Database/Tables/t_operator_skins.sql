@@ -25,17 +25,17 @@ DROP TABLE IF EXISTS `t_operator_skins`;
 CREATE TABLE `t_operator_skins` (
   `skin_id` int(11) NOT NULL AUTO_INCREMENT,
   `operator_id` int(11) DEFAULT NULL,
-  `skin_image` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `skin_type` tinyint(4) DEFAULT NULL,
-  `skin_name` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `skin_drawer` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `skin_group` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `skin_content` text COLLATE utf8mb4_general_ci,
-  `skin_usage` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `skin_desc` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `skin_source` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`skin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `skin_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_drawer` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_group` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `skin_usage` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_desc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `skin_source` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`skin_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +47,4 @@ CREATE TABLE `t_operator_skins` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-12 18:15:13
+-- Dump completed on 2021-06-28 11:46:34

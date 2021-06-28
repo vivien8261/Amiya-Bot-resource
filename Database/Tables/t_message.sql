@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `t_message`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_message` (
   `msg_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `target_id` bigint(20) DEFAULT NULL,
   `msg_type` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `group_id` bigint(20) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
   `reply_user` bigint(20) DEFAULT NULL,
-  `msg_time` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `hour_mark` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `msg_time` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`msg_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -42,4 +42,4 @@ CREATE TABLE `t_message` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-12 18:15:12
+-- Dump completed on 2021-06-28 11:46:33
