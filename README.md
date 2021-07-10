@@ -80,14 +80,19 @@ extraHeaders:
 
 ### 导入 Amiya-Bot 资源
 
-1. 在 Mysql 数据库里导入结构文件 `Database/amiya.sql`（必须）
-2. 在 Mysql 数据库里导入初始数据文件 `Database/Data/t_config_amiya.sql`（必须）
+1. `（重要）`在 Mysql 数据库里导入结构文件 `Database/amiya.sql`
+2. `（重要）`在 Mysql 数据库里导入初始数据文件 `Database/Data/t_config_amiya.sql`
 3. 把字体文件 `Font/AdobeHeitiStd-Regular.otf` 放到 Amiya-Bot 目录 `resource/style` 下
 4. 把表情包图片 `Images/Face/` 放到 Amiya-Bot 目录 `resource/images/face` 下，可自行添加，支持 png 和 jpg 格式
 
+### （可选）导入已维护好的部分资源
+
+- `Database/Data/t_pool.sql` 为卡池数据，无卡池数据的情况下 Amiya-Bot 将无法使用抽卡功能
+- `Database/Data/t_operator_gacha_config.sql` 为更新时的干员属性配置
+
 ### 更新现有数据库
 
-`Database/Tables` 下有单个数据表的结构文件，Amiya-Bot 在一些更新中需要修改表结构的时候，可以从中使用单表结构文件定向更新数据库
+`Database/Tables` 为单个数据表的结构文件，Amiya-Bot 在一些更新中需要修改表结构的时候，可以从中使用单表结构文件定向更新数据库
 
 ### 声明
 
