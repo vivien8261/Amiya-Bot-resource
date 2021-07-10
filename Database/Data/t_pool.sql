@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 12/06/2021 18:19:49
+ Date: 10/07/2021 15:03:16
 */
 
 SET NAMES utf8mb4;
@@ -30,13 +30,13 @@ CREATE TABLE `t_pool` (
   `pickup_s` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `limit_pool` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`pool_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of t_pool
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_pool` VALUES (1, '常驻寻访', '莫斯提马,推进之王', '诗怀雅,星极,爱丽丝', '', NULL, 0);
+INSERT INTO `t_pool` VALUES (1, '常驻寻访', '塞雷娅,嵯峨', '食铁兽,灰喉,四月', '', '', 0);
 INSERT INTO `t_pool` VALUES (2, '联合行动', '棘刺,夜莺,铃兰,温蒂', '临光,安哲拉,赫默,芙兰卡,极境,莱恩哈特', '', NULL, 2);
 INSERT INTO `t_pool` VALUES (3, '银灰色的荣耀', '银灰', '初雪,崖心', '角峰', NULL, 0);
 INSERT INTO `t_pool` VALUES (4, '搅动潮汐之剑', '斯卡蒂', '夜魔,临光', '猎蜂,暗索', NULL, 0);
@@ -70,6 +70,7 @@ INSERT INTO `t_pool` VALUES (31, '进攻、防守、战术交汇', '灰烬', '�
 INSERT INTO `t_pool` VALUES (32, '沙海过客', '异客', '熔泉', '', NULL, 0);
 INSERT INTO `t_pool` VALUES (33, '深悼', '浊心斯卡蒂,凯尔希', '赤冬', '', 'W|5', 1);
 INSERT INTO `t_pool` VALUES (34, '革新交响曲', '卡涅利安', '绮良,崖心', '深靛', NULL, 0);
+INSERT INTO `t_pool` VALUES (35, '从星火中来', '帕拉斯', '幽灵鲨,红', '', NULL, 0);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
